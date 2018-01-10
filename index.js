@@ -41,7 +41,7 @@ function merge(target, obj) {
       target[key] = merge(newVal, oldVal);
     } else if (Array.isArray(newVal)) {
       target[key] = utils.union([], newVal, oldVal);
-    } else {
+    } else if (!!oldVal) {
       target[key] = utils.clone(oldVal);
     }
   }
